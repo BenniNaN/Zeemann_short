@@ -1,0 +1,62 @@
+\documentclass[12pt]{article}
+
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[latin1]{inputenc}
+%% dieses package erlaubt, bei deutscher Tastatur Umlaute, ß direkt einzugeben
+
+\usepackage{siunitx}
+
+\textwidth=170mm
+\textheight=240mm
+\hoffset= -20mm       % may need change
+\voffset= -25mm       % may need change
+
+
+
+\begin{document}
+
+%% we do the title page ourselves
+\thispagestyle{empty}     % only for frontpage
+\null
+\vspace{40mm}
+\begin{center}
+{%%%%%%%%%%%%%%%%%%%%%%%%%% Titel
+\Large  The Zeemann effect
+\footnote{\noindent Experiment F44, performed on 3/20/18, Tutor Pooja, short evaluation}}\\[15mm]
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Authors
+Lasse Gresista and Benjamin Haake
+
+\vspace{25mm}
+
+\parbox{0.9\textwidth}{   %% etwas schmaler als normaler Satz
+Abstract:    
+\small The abstract should preferentially be in English. Here we explain in a
+few lines (i) what was done, and (ii) what the results were.
+}
+\end{center}
+
+\vfill
+%Attested as special evaluation: Date, Signature:
+\vspace{20mm}
+
+%% Rueckseite des Titelblatts leer. Bei einseitigem Druck entfernen
+\newpage  
+\null\thispagestyle{empty}
+
+\newpage
+\pagenumbering{arabic}
+
+\section{Introduction}
+\section{Setup of the experiment}
+\section{Execution}
+\section{Evaluation}
+\section{Discussion}
+
+\newpage
+\begin{thebibliography}{00}   % {00}: max 2-stellige Referenznummer
+
+\bibitem{sc} Zeemann-effect (2010)
+
+\end{thebibliography}
+\end{document}
