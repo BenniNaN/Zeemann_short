@@ -50,22 +50,69 @@ few lines (i) what was done, and (ii) what the results were.
 \section{Introduction}
 In this experiment the effect of the normal Zeeman effect on the red spectral line ($\lambda\approx644nm$) of the Cadmium spectrum is observed using a Lummer-Gehrcke Plate. Additionally the wavelength of the spectral line is measured using a Czerny-Turner spectrometer.
 
-\subsection{The Zeeman Effect}
-\subsection{}
+\subsection{The normal Zeeman Effect}
+The bound electrons surrounding a nucleus can occupy different quantised energy levels. Without an external magnetic field, quantum states with the angular momentum quantum number l have a degeneracy of 2l+1. An external magnetic field \textbf{B} splits these energy levels. This is called the Zeeman effect. The normal Zeeman effect is the special case of all electron spins canceling each other. In a classical deviation, neglecting the spins of the electrons, the orbiting electron with an angular momentum \textbf{l} has a magnetic moment
+\begin{equation}
+\vec{\mu}_l=\frac{e}{2m_e}\textbf{l}
+\end{equation}
+where e is the electron charge and $m_e$ its mass. The interaction between the magnetic moment and the magnetic field changes the electron's potential energy. If the direction of the magnetic field is the quantisation axis z, and $m_l$ the magnetic quantum number, the change in potential energy can be written as
+\begin{equation}
+\Delta E_{pot}=-\vec{\mu}_l\cdot \textbf{B}=\frac{e}{2m_e}\cdot\textbf{l}\cdot\textbf{B}=\mu_B \cdot m_l \cdot B
+\end{equation}
+where in the last step $l_z=m_l\cdot\hbar$ was used and the Bohr magneton $\mu_B=\frac{e\cdot\hbar}{2m_e}$ was introduced.
+
+\subsection{Spectroscopy of the Zeeman Effect}
+\subsubsection{Selection rules and polarization}
+If an electron transitions from an energy level $E_k$ to a lower energy level $E_i$, a photon is emitted with the energy
+\begin{equation}
+E_{ph}=h \cdot \nu=h \cdot \frac{c}{\lambda}=E_k-E_i
+\label{eq:photonenergy}
+\end{equation}
+where $\nu$ is the frequency of the photon, $\lambda$ its wavelength and c the speed of light. Due to momentum conversation and symmetry rules only those transitions who obey the so-called selection rules are allowed. They state that $\Delta m=0,\pm1$ and for electric dipole transitions $\Delta l=\pm1$ and $\Delta S=0$, with S being the total spin of all electrons in the atom. Transitions with $\Delta m=0$ are called $\pi$-transitions and are only emitted in the transversal direction of the magnetic field. The emitted light is linearly polarized. For $\Delta m=\pm1$ the transitions are called $\sigma$-transitions. They are circularly polarized when viewed from the longitudinal direction and linearly polarized when viewed from the transversal direction.
+
+\subsubsection{The Lummer-Gehrke plate}
+To see the shift in wavelength a so-called Lummer-Gehrcke plate  will be used, which is a quartz glass plate with extremely plane parallel surfaces. Light enters the plate through a prism at an angle of nearly total internal reflection. The light then get's reflected on the surfaces inside the plate with a little bit of light escaping at each reflection with an angle of $\alpha \approx 90^\circ$ (see figure \ref{fig:lummergehrke}), which is then observed with a telescope. In a long and thin plate this way many light rays interfere with each other leading to a high resolution. For a plate in air with an index of reflection $n$, and at the limit of total internal reflection $\alpha\approx 90 ^\circ$ the optical path length difference $\Delta$ can be calculated using the following equation:
+\begin{equation}
+\Delta=\Delta_1-\Delta_2=2d \cdot \sqrt{n^2-1}
+\end{equation}
+For constructive interference $\Delta$ satisfies
+\begin{equation}
+\Delta=k\cdot\lambda 
+\label{eq:constructive interference}
+\end{equation} 
+where k is a whole number. Considering a change in wavelength of $\Delta\lambda$, the order k+1 of the wavelength $\lambda+\Delta\lambda$ and the order k of the wavelength $\lambda$ overlap for $k \cdot (\lambda+\Delta\lambda)=(k+1)\cdot\lambda$. With this condition and equation \ref{eq:constructive interference} the so-called free spectral range $\Delta\lambda$ follows from:
+\begin{equation}
+\Delta\lambda=\frac{\lambda^2}{2d \cdot \sqrt{n^2-1}}
+\end{equation}
+In an approximation to first order a small wavelength change $\delta\lambda \ll \Delta\lambda$ leads to a shift of 
+\begin{equation}
+\delta \lambda= \frac{\delta k}{\Delta k} \cdot \Delta\lambda
+\end{equation}
+where $\delta k$ is the shift in "order" resulting from the wavelength shift corresponding to a certain shift in the position of the line on the detector and $\Delta k$ is the difference between to nearby orders, which means $\Delta k=1$. With the above equations the final result is:
+\begin{equation}
+\delta\lambda=\delta k \cdot \frac{\lambda^2}{2d\cdot\sqrt{n^2-1}}
+\end{equation}
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth]{fig/lummergehrke.png}
+\caption{Schematic of the Lummer-Gehrke plate}
+\label{fig:lummergehrke}
+\end{figure}
 
 
 \section{Setup of the experiment}
+In both parts of the experiment the red line of a Cadmium lamb will be observed, which arises from the transition between the two excited levels $^1D_2\rightarrow^1P_1$ in the fifth shell of Cd.
 \subsection{Part 1: Spectroscopy of the Zeeman Effect}
-To investigate the normal Zeeman effect, the light of a Cadmium Lamp is observed through a Lummer-Gehrcke Plate. The pole pieces of an electromagnet are positioned on opposing sides of the CD lamp. The set-up is turnable and the pole pieces have a hole in the middle, which makes it possible to observe both transversal and longitudinal directions. The spectra are taken through a red light filter via a telescope and a CCD-Camera. The magnetic field strength is measured with a Gaussmeter.
+To investigate the normal Zeeman effect the light of a Cadmium Lamp is observed through a Lummer-Gehrcke plate. The pole pieces of an electromagnet are positioned on opposing sides of the Cd lamp. The set-up is turnable and the pole pieces have a hole in the middle, which makes it possible to observe both transversal and longitudinal directions. The spectra are taken through a red light filter with a telescope and a CCD-Camera. The magnetic field strength is measured with a Gaussmeter.
 \subsection{Part 2: Precision Spectroscopy}
-To determine the absolute wavelength of the red CD line a Czerny-Turner Spectrometer is used. Light entering the spectrometer through an entrance split is focused by a concave mirror on a grating, where it gets diffracted. The diffracted light then gets focused by another concave mirror onto a CCD camera. The light of the CD lamp and the neon lamp, which is used for calibration of the setup, is connected to the spectrometer using an optical fiber and two lenses to focus the light on the entrance slit. 
+To determine the absolute wavelength of the red Cd line a Czerny-Turner Spectrometer is used. Light entering the spectrometer through an entrance split is focused by a concave mirror on a grating, where it gets diffracted. The diffracted light then gets focused by another concave mirror onto a CCD camera. The light of the Cd lamp and the neon lamp, which is used for the calibration of the setup, is connected to the spectrometer using an optical fiber and two lenses to focus the light on the entrance slit. 
 
 \section{Execution}
 \subsection{Part 1: Spectroscopy of the Zeeman Effect}
-To convert the current applied to the electromagnets into the magnetic field strength, the field strength is measured for currents from 1-14A in 1A steps. This is done for ascending and descending currents to account for the hysteresis effect. Each measurement is done 3 times and an average is taken.
-\\Next the light of the CD lamp with the magnetic field turned on is observed in both longitudinal and transversal directions. In the transversal direction spectra are recorded for a current of I=10A, I=12 and I=14A in ascending order. Additionally $\lambda/4$ and polarisation filters are used to determine the polarisation of the emitted light. 
+To convert the current applied to the electromagnets into the magnetic field strength, the field strength was measured for currents from 1-14A in 1A steps. This was done for ascending and descending currents to account for the hysteresis effect. Each measurement of a magnetic field strength measurement was done 3 times and an average was taken.
+\\Next the light of the Cd lamp with the magnetic field turned on was observed in both longitudinal and transversal directions. In the transversal direction spectra were recorded for a current of I=10A, I=12 and I=14A in ascending order. Additionally $\lambda/4$ and polarisation filters were used to determine the polarisation of the emitted light. 
 \subsection{Part 2: Precision Spectroscopy}
-Spectra where taken with a grating of 1800 lines/mm and an integration time of 60 seconds. First the region of the neon spectrum with wavelengths of around 630-655nm was observed. Without changing the setup except now using the CD lamp the same region of the CD spectrum was observed. 
+Spectra were taken with a grating of 1800 lines/mm and an integration time of 60 seconds. First the region of the neon spectrum with wavelengths of around $630nm-655nm$ was observed. Without changing the setup except now using the Cd lamp the same region of the Cd spectrum was observed. 
 \section{Evaluation}
 \subsection{Part 1: Spectroscopy of the Zeeman Effect}
 
@@ -73,9 +120,13 @@ Spectra where taken with a grating of 1800 lines/mm and an integration time of 6
 
 
 \section{Discussion}
-\subsection{Part 1}
-When measuring the magnetic field strength, the deviations caused by the hysteresis effect were in significant. 
-In the first part of the experiment one could qualitatively see very well how the magnetic field affects the light emitted by the Cadmium lamp. In the transversal direction $\pi$- and $\sigma$-lines are emitted both being linearly polarized, and in the longitudinal direction two $\sigma$-lines are emitted which are circularly polarised with opposing directions of rotation. When determining the wavelength shift $\delta \lambda$ for both $\sigma$-lines in the transversal direction the left line consistently had slightly higher values. One source of error 
+
+When observing the Cadmium lamp trough the Lummer-Gherke plate one could qualitatively see very well how the magnetic field affects the light emitted by the Cadmium lamp. In the transversal direction $\pi$- and $\sigma$-lines are emitted both being linearly polarized, and in the longitudinal direction two $\sigma$-lines are emitted which are circularly polarised with opposing directions of rotation. There was also a faint $\pi$-line visible in the longitudinal direction, probably due to reflections.
+\\When determining the wavelength shift $\delta \lambda$ for both $\sigma$-lines in the transversal direction, the left line consistently had slightly higher values. One source of error could be the growing background noise in the spectrum. This was not accounted for in the fit, even though you see a noticeable rise comparing the left and right $\sigma$-peak of the same order. 
+\\To obtain a spectrum (intensity against position in pixels) out of an image taken with the CCD camera, a hand drawn reference line was used to determine the alignment of the spectral lines. This might have also shifted the spectrum to one side, but since the results for all three magnetic field strengths showed a deviation in the same direction, it's unlikely that this is the cause for the higher values. 
+\\When comparing the experimental values for the Bohr magneton $\mu_B$ to the literature value ($\mu_b=9.247\cdot10^{-24}J/T$) there is only one significant deviation, and the best value was obtained with the right $\sigma$-peak and a current of I=12A, where the deviation is under 1$\sigma$ ($\mu_b=(9.40\pm0.35)\cdot10^{-24}J/T$. All experimental values are higher than the literature value, especially the ones for the left side. This suggests another unaccounted systematic error.
+\\In the second part of the experiment the wavelength of the observed Cd-line was determined to be $\lambda_{Cd}=(643.59\pm0.19)nm$. The literature value is $\lambda_{Cd, lit}=643.847nm$ (physics.nist.gov/asd), so the deviation is under 2$\sigma$. 
+\\The other two wavelengths in the spectrum were determined to be $\lambda_1=(639.80\pm0.17)nm$ and $\lambda_2=(652.25\pm0.26)nm$. It was tried to identify the element emitting those lines using the NIST Atomic Spectra Database. The element with the best fitting spectral lines was Mercury, since it has two lines at $\lambda_{Hg,1}=(639.4890\pm0.0003)nm$ and $\lambda_{Hg,2}=(652.1092\pm0.0003)nm$. This means there is only a 1$\sigma$ and 2$\sigma$ deviation. All other elements either had a significant deviations or had other spectral lines with high intensity that would have also appeared in our image if the element was present. It is however no reason known why mercury should be in a Cadmium lamb. Another suggestion is Thorium, which is sometimes used as the material for the cathode of Cadmium lambs. It has two spectral lines at $\lambda_{Th,1}=(640.644609\pm0.000006)nm$ and $\lambda_{Th,2}=(652.204346\pm0.00013)nm$. The second wavelength fits well with a deviation below 1$\sigma$, the first line deviates significantly. There are however many more spectral lines in the same wavelength range with high relative intensity that are not appearing in our spectrum. To definitively identify the element, more information on the Cadmium lamb or the set-up in general seems to be necessary. 
 
 
 
