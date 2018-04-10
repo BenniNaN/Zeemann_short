@@ -5,6 +5,7 @@
 \usepackage[latin1]{inputenc}
 %% dieses package erlaubt, bei deutscher Tastatur Umlaute, ß direkt einzugeben
 
+\usepackage{amsmath}
 \usepackage{siunitx}
 
 \textwidth=170mm
@@ -40,9 +41,6 @@ few lines (i) what was done, and (ii) what the results were.
 %Attested as special evaluation: Date, Signature:
 \vspace{20mm}
 
-%% Rueckseite des Titelblatts leer. Bei einseitigem Druck entfernen
-\newpage  
-\null\thispagestyle{empty}
 
 \newpage
 \pagenumbering{arabic}
@@ -91,6 +89,7 @@ In an approximation to first order a small wavelength change $\delta\lambda \ll 
 where $\delta k$ is the shift in "order" resulting from the wavelength shift corresponding to a certain shift in the position of the line on the detector and $\Delta k$ is the difference between to nearby orders, which means $\Delta k=1$. With the above equations the final result is:
 \begin{equation}
 \delta\lambda=\delta k \cdot \frac{\lambda^2}{2d\cdot\sqrt{n^2-1}}
+\label{dlambda}
 \end{equation}
 \begin{figure}
 \centering
@@ -114,18 +113,46 @@ To convert the current applied to the electromagnets into the magnetic field str
 \subsection{Part 2: Precision Spectroscopy}
 Spectra were taken with a grating of 1800 lines/mm and an integration time of 60 seconds. First the region of the neon spectrum with wavelengths of around $630nm-655nm$ was observed. Without changing the setup except now using the Cd lamp the same region of the Cd spectrum was observed. 
 \section{Evaluation}
+	To obtain the magnetic field strength from the applied current in later parts of the experiment a linear fit was made for the measured values.
 \subsection{Part 1: Spectroscopy of the Zeeman Effect}
+	Since the transversal lines vanish for certain configurations of the polarisation filter and the $\frac{\lambda}{4}$-plate has no effect we conclude, that they are linearly polarized. Additionally, the polarisations of the $\sigma$- and $\pi$-line are perpendicular to each other, since the lines vanish for orientations of the polarisation filter related by a rotation by $\ang{90}$.\\
+	Similarly the $\sigma$-lines must be circularly polarised in longitudinal direction since they vanish for certain configurations of both filters applied simultaneously ($\frac{\lambda}{4}$-plate first). And since they vanish at angles related by a rotation of $\ang{90}$ of the polarisation filter, the orientation of the polarisation must be different, i.e. counter-clockwise in one case and clockwise in the other.\\
+	After the positions of all peaks (in transversal direction) had been determined by fitting gaussians, the order of interference was plotted and fitted against the positions of the $\pi$-lines. From the resulting parabolic function the positions of the $\sigma$-lines were assigned an interference order $k+\delta k$ where $k$ is the order of the associated $\pi$-line. The shift in wavelength can the be calculated via equation \ref{dlambda}. The energy difference is then given by:
+	\begin{align}
+		\Delta E&=hc\;\Bigl(\frac{1}{\lambda}-\frac{1}{\lambda+\delta \lambda} \Bigr) 
+		\label{dE1}\\
+		&=\mu_BBm_l
+		\label{dE2}
+	\end{align}
+	The Bohr magneton $\mu_B$ can now be determined by using equation \ref{dE1} to calculate $\Delta E$ and equation \ref{dE2} to obtain:
+	\begin{equation}	
+		\mu_B=\biggl| \frac{\Delta E}{B}\biggr|
+	\end{equation}
+	The results are displayed in table \ref{resultsP1}, the values for the magnetic field were calculated from the linear fit.
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{cccccc}
+			I[\si{\ampere}]&B[\si{\milli\tesla}]&$\delta\lambda_l$[\si{\pico\metre}]&$\mu_{B,l}$[\si{10^{-24}\joule\per\tesla}]&$\delta\lambda_r$[\si{\pico\metre}]&$\mu_{B,r}$[\si{10^{-24}\joule\per\tesla}]\\
+			$10,0\pm 0,2$&$525\pm 19$&$-11,23\pm 0,46$&$10,25\pm 0,43$&$10,00\pm 0,44$&$9,13\pm 0,42$\\
+			$12,0\pm 0,2$&$589\pm 19$&$-13,06\pm 0,48$&$10,63\pm 0,40$&$11,91\pm 0,47$&$9,69\pm 0,39$\\
+			$14,0\pm 0,2$&$652\pm 19$&$-14,12\pm 0,48$&$10,38\pm 0,37$&$12,80\pm 0,47$&$9,40\pm 0,35$\\
+			\label{resultsP1}
+		\end{tabular}
+		\caption{Determining the Bohr magneton}
+	\end{table}
+	One measurement deviates significantly from the literature value of $\mu_B=9,274\, 10^{-24}\si{\joule\per\tesla}$ and the values on the left side are higher, suggesting a systematic error that was not accounted for.
 
 \subsection{Part 2: Precision Spectroscopy}
-
+	The positions of the peaks were determined as before and wavelengths were assigned to the Neon-lines. From these, a linear fit was produced that was used to determine the wavelengths of the lines in the Cadmium spectrum.\\ 
+	The element that fitted best was Mercury (Hg), but there is no known reason for the lamp to contain it. Another explanation might be Thorium, which might be used for the electrodes (for exact values, see Discussion).
 
 \section{Discussion}
 
 When observing the Cadmium lamp trough the Lummer-Gherke plate one could qualitatively see very well how the magnetic field affects the light emitted by the Cadmium lamp. In the transversal direction $\pi$- and $\sigma$-lines are emitted both being linearly polarized, and in the longitudinal direction two $\sigma$-lines are emitted which are circularly polarised with opposing directions of rotation. There was also a faint $\pi$-line visible in the longitudinal direction, probably due to reflections.
-\\When determining the wavelength shift $\delta \lambda$ for both $\sigma$-lines in the transversal direction, the left line consistently had slightly higher values. One source of error could be the growing background noise in the spectrum. This was not accounted for in the fit, even though you see a noticeable rise comparing the left and right $\sigma$-peak of the same order. 
+\\When determining the wavelength shift $\delta \lambda$ for both $\sigma$-lines in the transversal direction, the left line consistently produced slightly higher values for $\mu_B$. One source of error could be the growing background noise in the spectrum. This was not accounted for in the fit, even though you see a noticeable rise comparing the left and right $\sigma$-peak of the same order. 
 \\To obtain a spectrum (intensity against position in pixels) out of an image taken with the CCD camera, a hand drawn reference line was used to determine the alignment of the spectral lines. This might have also shifted the spectrum to one side, but since the results for all three magnetic field strengths showed a deviation in the same direction, it's unlikely that this is the cause for the higher values. 
-\\When comparing the experimental values for the Bohr magneton $\mu_B$ to the literature value ($\mu_b=9.247\cdot10^{-24}J/T$) there is only one significant deviation, and the best value was obtained with the right $\sigma$-peak and a current of I=12A, where the deviation is under 1$\sigma$ ($\mu_b=(9.40\pm0.35)\cdot10^{-24}J/T$. All experimental values are higher than the literature value, especially the ones for the left side. This suggests another unaccounted systematic error.
-\\In the second part of the experiment the wavelength of the observed Cd-line was determined to be $\lambda_{Cd}=(643.59\pm0.19)nm$. The literature value is $\lambda_{Cd, lit}=643.847nm$ (physics.nist.gov/asd), so the deviation is under 2$\sigma$. 
+\\When comparing the experimental values for the Bohr magneton $\mu_B$ to the literature value ($\mu_b=9.247\cdot10^{-24}J/T$) there is only one significant deviation, and the best value was obtained with the right $\sigma$-peak and a current of I=12A, where the deviation is less than 1$\sigma$ ($\mu_b=(9.40\pm0.35)\cdot10^{-24}J/T$. All experimental values are higher than the literature value, especially the ones for the left side. This suggests another unaccounted systematic error.
+\\In the second part of the experiment the wavelength of the observed Cd-line was determined to be $\lambda_{Cd}=(643.59\pm0.19)nm$. The literature value is $\lambda_{Cd, lit}=643.847nm$ (physics.nist.gov/asd), so the deviation is less than 2$\sigma$. 
 \\The other two wavelengths in the spectrum were determined to be $\lambda_1=(639.80\pm0.17)nm$ and $\lambda_2=(652.25\pm0.26)nm$. It was tried to identify the element emitting those lines using the NIST Atomic Spectra Database. The element with the best fitting spectral lines was Mercury, since it has two lines at $\lambda_{Hg,1}=(639.4890\pm0.0003)nm$ and $\lambda_{Hg,2}=(652.1092\pm0.0003)nm$. This means there is only a 1$\sigma$ and 2$\sigma$ deviation. All other elements either had a significant deviations or had other spectral lines with high intensity that would have also appeared in our image if the element was present. It is however no reason known why mercury should be in a Cadmium lamb. Another suggestion is Thorium, which is sometimes used as the material for the cathode of Cadmium lambs. It has two spectral lines at $\lambda_{Th,1}=(640.644609\pm0.000006)nm$ and $\lambda_{Th,2}=(652.204346\pm0.00013)nm$. The second wavelength fits well with a deviation below 1$\sigma$, the first line deviates significantly. There are however many more spectral lines in the same wavelength range with high relative intensity that are not appearing in our spectrum. To definitively identify the element, more information on the Cadmium lamb or the set-up in general seems to be necessary. 
 
 
